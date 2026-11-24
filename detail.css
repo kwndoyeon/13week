@@ -1,0 +1,56 @@
+:root {
+  --ink: #0a0a0a;
+  --gray: #9a9a9a;
+  --red: #e5322d;
+  font-family: Inter, Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; color: var(--ink); background: #fff; }
+body { padding: 36px clamp(90px, 16.5vw, 255px) 0; min-width: 900px; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+.hidden { display: none !important; }
+
+/* ───────── 머리 ───────── */
+#head { display: grid; grid-template-columns: 1fr minmax(180px, 260px) auto; gap: 24px 40px; align-items: start; margin-bottom: 64px; }
+h1 { margin: 0; font-size: 44px; line-height: 1.05; font-weight: 600; letter-spacing: -0.03em; }
+.sub { margin: 12px 0 0; font-size: 20px; line-height: 1.3; font-weight: 400; letter-spacing: -0.02em; color: var(--gray); }
+.back { display: inline-block; margin-top: 18px; font-size: 12px; color: #999; }
+.back:hover { color: var(--ink); }
+
+.regions-title { margin: 6px 0 0; font-size: 18px; line-height: 1.5; font-weight: 600; letter-spacing: -0.01em; }
+.current { margin-top: 30px; display: flex; align-items: baseline; gap: 10px; white-space: nowrap; }
+.current b { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; text-align: center; background: var(--ink); color: #fff; font-size: 14px; font-weight: 600; }
+.current span { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+.current small { font-size: 12px; color: #777; }
+.modes { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 11px; color: #888; }
+.modes span { margin-right: 4px; }
+.modes button { padding: 3px 8px; border: 1px solid #d0d0d0; background: #fff; color: #777; font-size: 11px; }
+.modes button.on { border-color: var(--ink); color: var(--ink); }
+
+#zones { margin: 6px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: auto auto; grid-auto-flow: column; grid-template-rows: repeat(5, auto); gap: 3px 28px; font-size: 13px; line-height: 17px; }
+#zones li a { display: flex; gap: 8px; white-space: nowrap; color: #333; }
+#zones li a:hover { color: var(--ink); }
+#zones li b { display: inline-block; width: 15px; height: 15px; line-height: 15px; text-align: center; background: #e3e3e3; font-weight: 500; font-size: 11px; }
+#zones li i { font-style: normal; color: #555; }
+#zones li.on a { font-weight: 700; color: var(--ink); }
+#zones li.on b { background: var(--ink); color: #fff; }
+
+/* ───────── 차트 ───────── */
+#chartWrap { position: relative; min-height: 400px; }
+#chart { margin-bottom: 0; }
+#chart { display: block; width: 100%; overflow: visible; }
+#chart text { font-family: inherit; }
+.ax text { font-size: 12px; font-variant-numeric: tabular-nums; }
+.band-label { font-size: 12px; }
+.tlabel { font-size: 13px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.tlabel-sub { font-size: 10px; fill: #999; font-variant-numeric: tabular-nums; }
+.side-title { font-size: 10px; letter-spacing: .08em; }
+.pline { fill: none; stroke: var(--red); stroke-width: 1.1; }
+.pt { fill: var(--red); cursor: pointer; }
+.pt:hover { stroke: #fff; stroke-width: 2; }
+.photo-night { filter: brightness(.72); }
+
+#tip { position: absolute; pointer-events: none; padding: 6px 9px; background: #fff; border: 1px solid var(--ink); font-size: 12px; line-height: 1.45; white-space: nowrap; transform: translate(-50%, calc(-100% - 12px)); z-index: 3; }
+#tip b { font-weight: 600; }
+#loading { position: absolute; inset: 0; display: grid; place-items: center; font-size: 14px; color: #888; background: #fff; }

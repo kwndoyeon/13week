@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seoul O’Clock — A map of Seoul’s population, Hour by Hour</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ───────── 좌측 패널 ───────── -->
+  <aside id="side">
+    <h1>Seoul O’Clock</h1>
+    <p class="sub">A map of Seoul’s population,<br>Hour by Hour</p>
+
+    <div class="timebox">
+      <div class="readout" id="readout">12:00</div>
+      <input id="slider" type="range" min="0" max="23" step="1" value="12" aria-label="시간 선택">
+      <div class="ticks"><span>00:00</span><span>23:00</span></div>
+    </div>
+
+    <!-- 지역에 호버했을 때 나타나는 세부 정보 -->
+    <section id="hoverPane" class="hidden">
+      <div class="titlebox"><b id="hp-num"></b><span id="hp-name"></span><small id="hp-sub"></small></div>
+      <div class="detailbox">
+        <h3>Detailed View</h3>
+        <div class="big"><span id="hp-pop">-</span><em>명</em></div>
+        <div class="when" id="hp-when"></div>
+        <svg id="spark" viewBox="0 0 300 92" preserveAspectRatio="none"></svg>
+        <div id="hp-stats"></div>
+      </div>
+    </section>
+
+    <ol id="legend"></ol>
+    <p id="status"></p>
+  </aside>
+
+  <!-- ───────── 지도 ───────── -->
+  <main id="stage">
+    <div id="basemap"></div>
+    <canvas id="mapmosaic"></canvas>
+    <svg id="map"></svg>
+
+    <div id="mosaic" class="hidden">
+      <span class="tag" id="mz-tag"></span>
+      <canvas id="mz-canvas"></canvas>
+      <div class="vslider" id="vslider" title="드래그하거나 스크롤해서 시간 조절">
+        <span class="vend">00</span>
+        <div class="vtrack"><div class="vthumb" id="vthumb"><em id="vlabel">12:00</em></div></div>
+        <span class="vend">23</span>
+      </div>
+      <div class="mlegend" id="mz-legend"></div>
+    </div>
+
+    <div class="zoombtns">
+      <button id="zin" type="button" aria-label="확대">+</button>
+      <button id="zout" type="button" aria-label="축소">−</button>
+      <button id="zreset" type="button" aria-label="전체 보기">⌂</button>
+    </div>
+    <div class="mlegend" id="map-legend"></div>
+    <div id="zoomhint">스크롤로 확대 · 클릭: 해당 지역으로 이동 · 더블클릭: 권역 상세 페이지</div>
+    <div id="loading">지도를 불러오는 중…</div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/pmtiles@4/dist/pmtiles.js"></script>
+<script src="config.js"></script>
+<script src="zones.js"></script>
+<script src="data.js"></script>
+<script src="mosaic.js"></script>
+<script src="basemap.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

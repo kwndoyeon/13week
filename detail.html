@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seoul O’Clock — Region</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+<header id="head">
+  <div class="brand">
+    <h1><a href="index.html">Seoul O’Clock</a></h1>
+    <p class="sub">A map of Seoul’s population,<br>Hour by Hour</p>
+    <a class="back" href="index.html">← 전체 지도</a>
+  </div>
+  <h2 class="regions-title">The 9 Regions of<br>Seoul</h2>
+  <div class="right">
+    <ol id="zones"></ol>
+    <div class="current"><b id="cur-num"></b><span id="cur-name"></span><small id="cur-gus"></small></div>
+    <div class="modes">
+      <span>밀집도 기준</span>
+      <button type="button" data-mode="region" class="on">권역 안에서 상대값</button>
+      <button type="button" data-mode="city">서울 9개 권역 비교</button>
+    </div>
+  </div>
+</header>
+
+<main id="chartWrap">
+  <svg id="chart"></svg>
+  <div id="tip" class="hidden"></div>
+  <div id="loading">생활인구 데이터를 불러오는 중…</div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="config.js"></script>
+<script src="zones.js"></script>
+<script src="data.js"></script>
+<script src="photos.js"></script>
+<script src="detail.js"></script>
+</body>
+</html>
